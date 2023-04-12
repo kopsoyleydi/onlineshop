@@ -18,8 +18,11 @@
         Electronic devices with high quality and service
     </h6>
 </div>
-<div class="cards">
-    <div class="one mt-5">
+<div class="block">
+    <div class="space">
+
+    </div>
+<div class="text">
         <%
             ArrayList<Items> items = (ArrayList<Items>) request.getAttribute("items");
 
@@ -27,19 +30,24 @@
                 for(Items it : items){
 
         %>
-        <div class="card">
+        <div class="card text-center" style="width: 300px">
             <div class="card-body">
-                <h5 class="card-header"><%=it.getName()%></h5>
-                <h6 class="card-title"><%=it.getPrice()%>$</h6>
+                <h5 class="card-title"><%=it.getName()%></h5>
+                <h4 class="card-text">
+                    <%=it.getPrice()%>$
+                </h4>
                 <p class="card-text"><%=it.getDescription()%></p>
-                <a href="#" class="btn btn-success" style="width: 100%"><%=buyNow%></a>
             </div>
+            <a href="#" class="btn btn-success" style="width: 70%;">Buy Now</a>
         </div>
         <%
+                }
             }
-        }
-    %>
-    </div>
+        %>
+</div>
+    <div class="space">
+
+</div>
 </div>
 </body>
 </html>
