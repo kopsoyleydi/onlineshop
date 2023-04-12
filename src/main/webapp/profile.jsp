@@ -12,11 +12,18 @@
 <head>
     <title>Profile</title>
     <%@include file="head.jsp"%>
+    <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
 <%@include file="header.jsp"%>
-<h4>
-    Hello you in <%=nameShop%>
-</h4>
+<div class="text mt-5">
+    <h4>
+        Hello you in <%=nameShop%>
+    </h4>
+    <h6>
+        This your profile page
+    </h6>
+</div>
+
 </body>
 </html>

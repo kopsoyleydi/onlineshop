@@ -24,7 +24,6 @@ public class LoginServlet extends HttpServlet {
 
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-
             for(Users users1 : users){
                 if(Objects.equals(users1.getEmail(), email) && Objects.equals(users1.getPassword(), password)){
                     response.sendRedirect("/ProfileServlet");
