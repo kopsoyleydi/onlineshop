@@ -20,14 +20,14 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ArrayList<Users> users = DBManager.getUsers();
-
         if(users != null){
+
             String email = request.getParameter("email");
             String password = request.getParameter("password");
 
             for(Users users1 : users){
                 if(Objects.equals(users1.getEmail(), email) && Objects.equals(users1.getPassword(), password)){
-                    response.sendRedirect("/profile.jsp");
+                    response.sendRedirect("/ProfileServlet");
                 }
                 else{
                     response.sendRedirect("/LoginServlet?error");
@@ -35,5 +35,6 @@ public class LoginServlet extends HttpServlet {
                 break;
             }
         }
+
     }
 }

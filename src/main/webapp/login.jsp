@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="classes.Users" %><%--
   Created by IntelliJ IDEA.
   User: omyrz
   Date: 11.04.2023

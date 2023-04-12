@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.net.UnknownServiceException" %>
+<%@ page import="classes.Users" %><%--
   Created by IntelliJ IDEA.
   User: omyrz
   Date: 11.04.2023
@@ -8,9 +10,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Profile</title>
+    <%@include file="head.jsp"%>
 </head>
 <body>
-
+<%@include file="header.jsp"%>
+<h4>
+    Hello you in <%=nameShop%>
+</h4>
 </body>
 </html>
