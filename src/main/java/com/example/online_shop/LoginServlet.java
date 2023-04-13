@@ -20,20 +20,20 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ArrayList<Users> users = DBManager.getUsers();
-        if(users != null){
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            for(Users users1 : users){
-                if(Objects.equals(users1.getEmail(), email) && Objects.equals(users1.getPassword(), password)){
-                    response.sendRedirect("/ProfileServlet");
-                }
-                else{
-                    response.sendRedirect("/LoginServlet?error");
-                }
-                break;
+        boolean check = false;
+        for(int i = 0;i< users.size();i++){
+            if(Objects.equals(users.get(i).getEmail(), email) && Objects.equals(users.get(i).getPassword(), password)){
+                check = true;
             }
         }
-
+        if(check){
+            response.sendRedirect("/ProfileServlet");
+        }
+        else{
+            response.sendRedirect("/LoginServlet?error");
+        }
     }
 }
