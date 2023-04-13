@@ -13,8 +13,9 @@ import java.util.ArrayList;
 public class ProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ArrayList<Users> users = DBManager.getUsers();
-        request.setAttribute("users", users);
+        Long id = Long.parseLong(request.getParameter("id"));
+        Users user = DBManager.getUser(id);
+        request.setAttribute("user", user);
         request.getRequestDispatcher("/profile.jsp").forward(request,response);
     }
 

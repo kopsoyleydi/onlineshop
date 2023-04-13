@@ -41,6 +41,27 @@ public class DBManager {
         return users;
     }
 
+    public static Users getUser(Long id){
+        Users user = null;
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE id = ?");
+
+            statement.setLong(1,id);
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                String email = resultSet.getString("email");
+                String password = resultSet.getString("password");
+                String fullName = resultSet.getString("full_name");
+                user = new Users(id,email,password,fullName);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
     public static ArrayList<Items> getItems(){
 
         ArrayList<Items> items = new ArrayList<>();

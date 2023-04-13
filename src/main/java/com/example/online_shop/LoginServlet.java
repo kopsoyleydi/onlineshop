@@ -22,15 +22,17 @@ public class LoginServlet extends HttpServlet {
         ArrayList<Users> users = DBManager.getUsers();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
+        Long id = null;
         boolean check = false;
         for(int i = 0;i< users.size();i++){
             if(Objects.equals(users.get(i).getEmail(), email) && Objects.equals(users.get(i).getPassword(), password)){
                 check = true;
+                id = (long) users.get(i).getId();
             }
         }
         if(check){
-            response.sendRedirect("/ProfileServlet");
+            String get = "/ProfileServlet?id=" + String.valueOf(id);
+            response.sendRedirect(get);
         }
         else{
             response.sendRedirect("/LoginServlet?error");
